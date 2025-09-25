@@ -1,20 +1,54 @@
 #include <stdio.h>
-#include <stdio.h>
 
 int main() {
-    double A, B, C;
-    double areaQuadrado, areaTriangulo, areaTrapezio;
+    double l1, l2, l3;
 
-    printf("Digite as medidas A, B e C: ");
-    scanf("%lf %lf %lf", &A, &B, &C);
+    printf("Qual foi a distância do seu primeiro lançamento? ");
+    if (scanf("%lf", &l1) != 1) {
+        printf("Entrada inválida!\n");
+        return 1;
+    }
 
-    areaQuadrado = A * A;
-    areaTriangulo = (A * B) / 2.0;
-    areaTrapezio = ((A + B) * C) / 2.0;
+    printf("Qual foi a distância do seu segundo lançamento? ");
+    if (scanf("%lf", &l2) != 1) {
+        printf("Entrada inválida!\n");
+        return 1;
+    }
 
-    printf("AREA QUADRADO = %.4lf\n", areaQuadrado);
-    printf("AREA TRIANGULO = %.4lf\n", areaTriangulo);
-    printf("AREA TRAPEZIO = %.4lf\n", areaTrapezio);
+    printf("Qual foi a distância do seu terceiro lançamento? ");
+    if (scanf("%lf", &l3) != 1) {
+        printf("Entrada inválida!\n");
+        return 1;
+    }
 
-    return 0;
+    // Verificação de valores negativos
+    if (l1 < 0 || l2 < 0 || l3 < 0) {
+        printf("As distâncias não podem ser negativas.\n");
+        return 1;
+    }
+
+    // Descobrir o maior lançamento
+    if (l1 >= l2 && l1 >= l3) {
+        if (l1 == l2 && l1 == l3) {
+            printf("Todos os lançamentos tiveram a mesma distância.\n");
+        } else if (l1 == l2) {
+            printf("O primeiro e o segundo lançamentos foram os maiores (%.2f m).\n", l1);
+        } else if (l1 == l3) {
+            printf("O primeiro e o terceiro lançamentos foram os maiores (%.2f m).\n", l1);
+        } else {
+            printf("O primeiro lançamento foi o maior (%.2f m).\n", l1);
+        }
+    }
+    else if (l2 >= l1 && l2 >= l3) {
+        if (l2 == l3) {
+            printf("O segundo e o terceiro lançamentos foram os maiores (%.2f m).\n", l2);
+        } else {
+            printf("O segundo lançamento foi o maior (%.2f m).\n", l2);
+        }
+    }
+    else {
+        printf("O terceiro lançamento foi o maior (%.2f m).\n", l3);
+    }
+
+    return 0;
 }
