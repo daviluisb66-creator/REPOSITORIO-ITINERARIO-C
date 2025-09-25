@@ -1,19 +1,32 @@
 #include <stdio.h>
 
 int main() {
-    double A, B, C;
-    double areaQuadrado, areaTriangulo, areaTrapezio;
+    double glicose;
 
-    printf("Digite as medidas A, B e C: ");
-    scanf("%lf %lf %lf", &A, &B, &C);
+    printf("Qual seu nível de glicose (mg/dL)?\n");
 
-    areaQuadrado = A * A;
-    areaTriangulo = (A * B) / 2.0;
-    areaTrapezio = ((A + B) * C) / 2.0;
+    // Verificação de entrada
+    if (scanf("%lf", &glicose) != 1) {
+        printf("Entrada inválida. Digite apenas números.\n");
+        return 1; // encerra com erro
+    }
 
-    printf("AREA QUADRADO = %.4lf\n", areaQuadrado);
-    printf("AREA TRIANGULO = %.4lf\n", areaTriangulo);
-    printf("AREA TRAPEZIO = %.4lf\n", areaTrapezio);
+    // Verificação de valor negativo
+    if (glicose < 0) {
+        printf("Valor inválido. Níveis de glicose não podem ser negativos.\n");
+        return 1;
+    }
 
-    return 0;
+    // Classificação dos níveis de glicose
+    if (glicose < 100) {
+        printf("O seu nível de glicose está NORMAL.\n");
+    }
+    else if (glicose < 140) {
+        printf("O seu nível de glicose está ELEVADO.\n");
+    }
+    else {
+        printf("O seu nível de glicose indica DIABETES.\n");
+    }
+
+    return 0;
 }
