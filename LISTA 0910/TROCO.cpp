@@ -1,17 +1,23 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-    int x, y, soma;
+    double precoUnitario, dinheiroRecebido, troco;
+    int quantidade;
 
-    cout << "Digite o primeiro valor: ";
-    cin >> x;
-    cout << "Digite o segundo valor: ";
-    cin >> y;
+    cout << "Preco unitario do produto: ";
+    cin >> precoUnitario;
+    cout << "Quantidade comprada: ";
+    cin >> quantidade;
+    cout << "Dinheiro recebido: ";
+    cin >> dinheiroRecebido;
 
-    soma = x + y;
+    troco = dinheiroRecebido - (precoUnitario * quantidade);
 
-    cout << "Soma = " << soma << endl;
+    cout << fixed << setprecision(2);
+    cout << "TROCO = R$ " << troco << endl;
 
     return 0;
 }
+
